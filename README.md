@@ -21,6 +21,51 @@ silbenweise getrennt und mit Notenglyphen verschränkt. Für Navigation und
 Fusszeilen ist er brauchbar, für Liedtext nicht. Die Pipeline in `ocr/` bleibt
 als Zweitmeinung liegen, nicht als Hauptweg.
 
+## Scannen
+
+Gilt für ein noch nicht eingescanntes Buch. Die Hinweise stammen aus der Arbeit
+mit dem Mennoniten-Scan (400 dpi, bitonal) — sie beschreiben, was dort gut lief
+und was gestört hat.
+
+**Flachbett, nicht Handykamera.** Bei Noten entscheiden Kleinigkeiten über die
+`structure`: Wiederholungszeichen, Volta-Klammern, das kursive kleine "Refrain"
+über dem System. Handyfotos bringen perspektivische Verzerrung, wechselndes
+Licht und schwankenden Fokus; über mehrere hundert Seiten summiert sich das.
+Schwachpunkt des Flachbetts bei gebundenen Büchern ist der Bund — Schattenkante
+und gekrümmte Zeilen nahe der Falz. Dagegen hilft nur festes Andrücken.
+
+**Graustufen, nicht Schwarzweiß.** Bitonal trifft die Hell-Dunkel-Entscheidung
+beim Scannen und unwiderruflich: dünne Notenlinien brechen weg, und Durchschein
+lässt sich nachträglich nicht mehr wegrechnen. Graustufen lässt Spielraum.
+
+**300 dpi reichen.** Der vorhandene Scan hat 400 dpi; zum Lesen wird ohnehin auf
+160 dpi heruntergerechnet, und dabei war alles klar erkennbar. 600 dpi bläht nur
+die Datei auf.
+
+**Schwarzes Papier hinter die aufgeschlagene Seite legen.** Das ist der wirksamste
+Handgriff. Im Mennoniten-Scan scheint die Rückseite durch, auf manchen Seiten so
+deutlich, dass "Durchschein ignorieren" ausdrücklich im Prompt steht. Ein
+schwarzes Blatt unterdrückt das fast vollständig und kostet nichts.
+
+**OCR-Textebene erzeugen.** SimpleScan liefert keine mit. Ohne sie funktioniert
+`tools/build_index.py` nicht, denn es liest den Textlayer, um Liednummern den
+Seiten zuzuordnen:
+
+```sh
+ocrmypdf --language deu --output-type pdf scan.pdf buch.pdf
+```
+
+Für Liedtexte ist diese Ebene unbrauchbar (siehe oben), für Navigation
+unverzichtbar.
+
+**Seitenzahlen auf Lücken prüfen.** Im Mennoniten-Scan fehlt Buchseite 756
+vollständig; aufgefallen ist das erst spät und zufällig. Nach dem Scannen
+einmal die Abfolge durchsehen:
+
+```sh
+python3 tools/build_index.py <id> --show-sections
+```
+
 ## Einrichtung
 
 Vorausgesetzt: `python3`, `poppler-utils` (`pdftotext`, `pdftoppm`), `rclone`.

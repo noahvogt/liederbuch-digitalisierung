@@ -73,7 +73,7 @@ Für die OCR-Zweitmeinung zusätzlich `tesseract`, `tesseract-data-deu`,
 `hunspell`, `hunspell-de`, `python-pillow`, `python-numpy`.
 
 ```sh
-git clone <forgejo-url>/liederbuch-digitalisierung
+git clone https://git.mennoniten-basel.ch/noah/liederbuch-digitalisierung.git
 cd liederbuch-digitalisierung
 ```
 

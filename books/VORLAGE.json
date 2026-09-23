@@ -1,0 +1,16 @@
+{
+  "id": "kurzname-ohne-leerzeichen",
+  "book_title": "Name des Buchs, genau wie er in die book:-Zeile soll",
+  "song_range": [
+    1,
+    0
+  ],
+  "_song_range": "Erste und letzte LIEDnummer. Nicht die letzte Seite, nicht die letzte Nummer im Buch - hinter den Liedern folgen oft Lesungen, Gebete oder Register, die kein Liedformat haben. Ermittle die Obergrenze mit tools/build_index.py --show-sections.",
+  "batch_size": 45,
+  "_batch_size": "Lieder je Sitzung. 45 verbrauchen rund 26% eines 1M-Kontextfensters (gemessen: 5,3k Token je Lied).",
+  "render_dpi": 160,
+  "_render_dpi": "160 reicht für Text und Wiederholungszeichen. Höher nur, wenn feine Notation unklar bleibt.",
+  "match": "REGEX-der-den-Buchnamen-erkennt",
+  "_match": "Regex, der eine book:-Zeile diesem Buch zuordnet - auch bei Tippfehlern und alten Schreibweisen im Altbestand. Prüfe ihn mit tools/inventory.py --explain, BEVOR du Lieder als fehlend behandelst.",
+  "_pfade": "Pfade und rclone-Remote stehen NICHT hier, sondern in local.json (nicht eingecheckt). Siehe local.json.example."
+}

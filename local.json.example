@@ -1,0 +1,7 @@
+{
+  "mennoniten": {
+    "pdf": "~/pfad/zum/Scan.pdf",
+    "songrepo": "~/liedrepo/songs",
+    "remote": "rclone-remote:Pfad/Im/Remote"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mennoniten",
+  "book_title": "Gesangbuch «Gesangbuch der Mennoniten»",
+  "song_range": [
+    1,
+    576
+  ],
+  "batch_size": 45,
+  "render_dpi": 160,
+  "match": "Men+on+iten",
+  "_match": "Regex, der eine book:-Zeile diesem Buch zuordnet. Absichtlich weit: der Bestand enthielt 'Gesangbuch der Mennoniten', 'Gemeindebuch der Menonniten' und die Standardform.",
+  "_song_range": "Erste und letzte LIEDnummer. Ab 577 folgen im Buch Psalmlesungen zum Wechselsprechen - keine Lieder."
+}
